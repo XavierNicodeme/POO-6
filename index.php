@@ -1,6 +1,7 @@
 <?php
 
 require_once 'Bicycle.php';
+require_once 'car.php';
 
 $bike = new Bicycle();
 $bike->setColor('white');
