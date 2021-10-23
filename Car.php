@@ -11,7 +11,7 @@ class Car extends Vehicle
         'electric',
     ];
 
-    private bool $hasParkBrake;
+    private bool $hasParkBrake = true;
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
@@ -21,7 +21,7 @@ class Car extends Vehicle
 
     public function forward() : string
     {
-        if ($this->getHasParkBrake() === true) {
+        if ($this->hasParkBrake) {
             throw new Exception('Remove your brakes bro');
         }
         return parent::forward();
