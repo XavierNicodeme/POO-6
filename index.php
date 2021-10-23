@@ -1,17 +1,19 @@
 <?php
 
 require_once 'Bicycle.php';
-require_once 'car.php';
-require_once 'truck.php';
+require_once 'Car.php';
+require_once 'Truck.php';
+require_once 'HighWay.php';
+require_once 'MotorWay.php';
+require_once 'PedestrianWay.php';
+require_once 'ResidentialWay.php';
+require_once 'Skateboard.php';
 
-/*$bike = new Bicycle();
-$bike->setColor('white');
-$bike->setCurrentSpeed(0);
+$bike = new Bicycle('white', 1);
 
 
 $car = new Car('black', 5, 40);
 
-var_dump($car);*/
 
 /*echo $bike->forward();
 echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
@@ -37,6 +39,21 @@ var_dump($car);
 var_dump(Car::ALLOWED_ENERGIES);*/
 
 $truck = new Truck(200, 'black', 2, 'fuel');
-$truck->setStorage(199);
-echo $truck->isFull();
+//$truck->setStorage(199);
+//echo $truck->isFull();
+
+$motorWay = new MotorWay(4,130);
+$pedestrianWay = new PedestrianWay(1, 10);
+$residentialWay = new ResidentialWay(2, 50);
+
+$skate = new Skateboard('blue',0);
+
+$pedestrianWay->addVehicle($truck);
+$motorWay->addVehicle($car);
+$residentialWay->addVehicle($car);
+
+var_dump($pedestrianWay);
+//var_dump ($motorWay);
+
+
 
