@@ -11,10 +11,20 @@ class Car extends Vehicle
         'electric',
     ];
 
+    private bool $hasParkBrake;
+
     public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
         $this->setEnergy($energy);
+    }
+
+    public function forward() : string
+    {
+        if ($this->getHasParkBrake() === true) {
+            throw new Exception('Remove your brakes bro');
+        }
+        return parent::forward();
     }
 
     public function getEnergy(): int
@@ -36,6 +46,22 @@ class Car extends Vehicle
     public function setEnergyLevel(int $energyLevel): void
     {
         $this->energyLevel = $energyLevel;
+    }
+
+    /**
+     * @param bool $hasParkBrake
+     */
+    public function setHasParkBrake(bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getHasParkBrake(): bool
+    {
+        return $this->hasParkBrake;
     }
 
 }
