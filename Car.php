@@ -1,7 +1,8 @@
 <?php
  require_once 'Vehicle.php';
+ require_once 'LightableInterface.php';
 
-class Car extends Vehicle
+class Car extends Vehicle implements LightableInterface
 {
 
     private string $energy;
@@ -13,6 +14,14 @@ class Car extends Vehicle
 
     private bool $hasParkBrake = true;
 
+    public function switchOn(): bool
+    {
+        return true;
+    }
+    public function switchOff(): bool
+    {
+        return false;
+    }
     public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
