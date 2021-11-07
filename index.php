@@ -3,6 +3,7 @@
 require_once 'Vehicle.php';
 require_once 'Car.php';
 require_once 'Bicycle.php';
+require_once 'Speedometer.php';
 
 
 
@@ -19,12 +20,10 @@ catch (Exception $e) {
 finally {
     echo 'Ma voiture roule comme un donut' . '<br>';
 }
-$bike->setCurrentSpeed(6);
-var_dump($bike->switchOn());
-echo $bike->forward();
-var_dump($bike->switchOn());
 
 
+echo Speedometer::convertToKm(10);
+echo Speedometer::convertToMiles(10);
 
 
 
